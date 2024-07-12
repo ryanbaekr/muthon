@@ -160,9 +160,15 @@ my_func(x, y)  # muthon: inout=x,y
 
 To contribute to Muthon please fork the repository, branch off of main, and then make a merge request from your branch back to Muthon's main branch.
 
+You will be added to the contributors section of the authors file if your merge request is accepted.
+
 ## TODO
 
-In the future we'd like to have better integration with IDEs/editors, namely special highlighting of Muthon comments, like TODO, and underlining of failures.
+Better integration with IDEs/editors, namely special highlighting of Muthon comments, like TODO, and underlining of failures.
+
+Option to check for default values that are mutable.
+
+Checking for multiple references to the same object.
 
 ## FAQ
 
@@ -170,8 +176,15 @@ Why can't an argument be marked as inout once within the function instead of on 
 
 There are three good reasons for this:
 - If the function you're calling comes from an external library and does an in-place operation, you may have no way to satisfy Muthon
-- If you acknowledge an input argument as inout, it doesn't meaen the next person who uses the function knows it will modify the argument
+- If you acknowledge an input argument as inout, it doesn't mean the next person who uses the function knows it will modify the argument
 - You may want to selectively keep objects modified by a function around but not everytime
+
+Why is Muthon written in Python?
+
+Again, there are a couple of good reasons for this:
+- The developers are Python developers so Python was the most effective choice for getting a v0 out quickly
+- The users are Python developers who may be intimidated by something that needs to be built or requires a runtime
+- Since this is for Python developers, everyone who will want to contribute is already a Python developer
 
 ## How to Support
 
