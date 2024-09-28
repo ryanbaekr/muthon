@@ -2,7 +2,7 @@
 
 from muthon.cli_parser import parse_args
 
-def test_module_only():
+def test_module_only() -> None:
     """Test cli_parser with only a module arg"""
 
     args = [
@@ -44,7 +44,7 @@ def test_module_only():
     assert kwargs["verbose"] is False
 
 
-def test_package_only():
+def test_package_only() -> None:
     """Test cli_parser with only a package arg"""
 
     args = [
@@ -86,7 +86,7 @@ def test_package_only():
     assert kwargs["verbose"] is False
 
 
-def test_module_and_package():
+def test_module_and_package() -> None:
     """Test the invalid combination of module and package"""
 
     args = [
@@ -103,10 +103,10 @@ def test_module_and_package():
         assert True
 
 
-def test_no_args():
+def test_no_args() -> None:
     """Test the invalid case of no args"""
 
-    args = []
+    args: list[str] = []
 
     try:
         parse_args(args)
@@ -115,7 +115,7 @@ def test_no_args():
         assert True
 
 
-def test_exclude():
+def test_exclude() -> None:
     """Test the exclude arg"""
 
     args = [
@@ -161,7 +161,7 @@ def test_exclude():
     assert kwargs["verbose"] is False
 
 
-def test_verbose():
+def test_verbose() -> None:
     """Test the verbose arg"""
 
     args = [
