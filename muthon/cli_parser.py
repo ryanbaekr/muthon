@@ -1,10 +1,12 @@
 """Parser for the CLI"""
 
 import argparse
+from typing import Optional, Any
 
 from .constants import VERSION
 
-def parse_args(args=None):
+
+def parse_args(args: Optional[list[str]]=None) -> dict[str, Any]:
     """Return parsed args"""
 
     parser = argparse.ArgumentParser(
@@ -58,6 +60,6 @@ def parse_args(args=None):
         required=False,
     )
 
-    args = parser.parse_args(args)
+    pargs = parser.parse_args(args)
 
-    return vars(args)
+    return vars(pargs)
