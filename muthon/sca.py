@@ -2,11 +2,26 @@
 
 from typing import Optional, TypedDict, Unpack
 
+import libcst as cst
+
+
 class KeyWordArgs(TypedDict):
     module: Optional[str]
     package: Optional[str]
     exclude: Optional[str]
     verbose: bool
+
+
+def parse_file(file: str) -> Optional[cst.Module]:
+    """Parse syntax tree of individual file"""
+    with open(file) as f:
+        try:
+            source_tree = cst.parse_module(f.read())
+        except cst.ParserSyntaxError as syntax:
+            print(syntax)
+            source_tree = None
+    return source_tree
+
 
 def run_sca(**kwargs: Unpack[KeyWordArgs]) -> bool:
 
@@ -15,6 +30,10 @@ def run_sca(**kwargs: Unpack[KeyWordArgs]) -> bool:
     sources, verbose = process_args(**kwargs)
 
     print(sources)
+    for file in sources:
+        print(parse_file(file))
+
+
     print(verbose)
 
     return True
