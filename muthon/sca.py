@@ -47,7 +47,6 @@ def parse_file(file: str) -> Optional[cst.Module]:
 
 
 def run_sca(**kwargs: Unpack[KeyWordArgs]) -> bool:
-
     """Execute SCA on the provided code"""
 
     sources, verbose = process_args(**kwargs)
