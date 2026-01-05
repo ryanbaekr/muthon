@@ -1,6 +1,6 @@
 """Test the behavior of typing.Sequence"""
 
-from typing import cast, MutableSequence, Sequence
+from typing import cast, Sequence
 
 from mutyping import Mut
 
@@ -24,7 +24,7 @@ def test_readonly_mutable_sequence() -> None:
 
         return my_tot
 
-    x: MutableSequence[int] = [0, 1, 2]
+    x: Mut[Sequence[int]] = [0, 1, 2]
     assert my_func(x) == 3  # noqa: PLR2004
     assert x == [0, 1, 2]
 
@@ -32,12 +32,12 @@ def test_readonly_mutable_sequence() -> None:
 def test_mutation_mutable_sequence() -> None:
     """Test that mutable objects can be mutated"""
 
-    def my_func(my_list: MutableSequence[int]) -> int:
+    def my_func(my_list: Mut[Sequence[int]]) -> int:
         my_list.append(3)
 
         return len(my_list)
 
-    x: MutableSequence[int] = [0, 1, 2]
+    x: Mut[Sequence[int]] = [0, 1, 2]
     assert my_func(x) == 4  # noqa: PLR2004
     assert x == [0, 1, 2, 3]
 
@@ -61,7 +61,7 @@ def test_readonly_immutable_sequence() -> None:
 def test_mutation_immutable_sequence() -> None:
     """Test that immutable objects can't be mutated"""
 
-    def my_func(my_list: MutableSequence[int]) -> int:
+    def my_func(my_list: Mut[Sequence[int]]) -> int:
         my_list.append(3)
 
         return len(my_list)
@@ -75,11 +75,11 @@ def test_mutation_immutable_sequence() -> None:
 def test_mutation_immutable_sequence_w_cast() -> None:
     """Test that immutable objects can be mutated if first cast"""
 
-    def my_func(my_list: MutableSequence[int]) -> int:
+    def my_func(my_list: Mut[Sequence[int]]) -> int:
         my_list.append(3)
 
         return len(my_list)
 
     x: Sequence[int] = [0, 1, 2]
-    assert my_func(cast(MutableSequence[int], x)) == 4  # noqa: PLR2004
+    assert my_func(cast(Mut[Sequence[int]], x)) == 4  # noqa: PLR2004
     assert x == [0, 1, 2, 3]
