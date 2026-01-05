@@ -1,0 +1,25 @@
+[project]
+name = "mutyping"
+version = "1.0.0"
+description = "Static code analysis for mutable object safety in Python."
+readme = "README.md"
+license = "GPL-3.0-only"
+authors = [
+    {name = "Ryan Baker"},
+    {name = "Stephen Szemis"},
+]
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Repository = "https://www.github.com/ryanbaekr/mutyping"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.mypy]
+strict = true
