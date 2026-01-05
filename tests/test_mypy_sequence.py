@@ -2,15 +2,14 @@
 
 from typing import cast, MutableSequence, Sequence
 
-# from mutyping import Mut
+from mutyping import Mut
 
 
 def test_mut() -> None:
     """Test that Mut can be used in a type annotation"""
 
     x: Sequence[int] = [0, 1, 2]
-    # TODO implement mypy plugin
-    y: Sequence[int] = [0, 1, 2]  # y: Mut[Sequence[int]] = [0, 1, 2]
+    y: Mut[Sequence[int]] = [0, 1, 2]
     assert x == y
 
 
