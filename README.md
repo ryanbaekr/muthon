@@ -117,6 +117,8 @@ Beyond that, Mutyping just offers some syntax sugar so `Mut[Sequence]` can be us
 
 To contribute to Mutyping please fork the repository, branch off of main, and then make a merge request from your branch back to Mutyping's main branch.
 
+You will be added to the contributors section of the authors file if your merge request is accepted.
+
 ## How to Support
 
 The best ways to help are to [contribute](#how-to-contribute), open issues, star the project, and TODO buy me a coffee.
