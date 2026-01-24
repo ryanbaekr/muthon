@@ -1,5 +1,0 @@
-[flake8:local-plugins]
-extension =
-    TYP = checker:Plugin
-paths =
-    ./flake8-strict-types

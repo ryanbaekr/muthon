@@ -2,7 +2,7 @@
 
 import typing as _typing
 
-_T = _typing.TypeVar("_T")  # noqa: TYP001
+_T = _typing.TypeVar("_T")
 
 
 class Mut(_typing.Generic[_T]):
